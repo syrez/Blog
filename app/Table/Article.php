@@ -13,7 +13,7 @@ class Article{
     public function getUrl()
     {
 
-        return 'index.php?p='. str_replace(__NAMESPACE__."\\",'',__CLASS__ ).'&id=' . $this->id;
+        return 'index.php?p='. strtolower(str_replace(__NAMESPACE__."\\",'',__CLASS__ )).'&id=' . $this->id;
 
     }
 
@@ -24,7 +24,7 @@ class Article{
         return $html;
     }
 
-    public function getExtrait()
+    public function getContenu()
     {
         return "<p> $this->contenu </p>";
     }
