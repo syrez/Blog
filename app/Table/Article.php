@@ -24,8 +24,4 @@ class Article{
         return $html;
     }
 
-    public function getContenu()
-    {
-        return "<p> $this->contenu </p>";
-    }
 }

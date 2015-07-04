@@ -34,10 +34,16 @@ class Database
 
     public function query($statement, $class_name)
     {
-
         $req = $this->getPDO()->query($statement);
         $data = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
         return $data;
     }
 
+    public function prepare($statement, $attributes, $class_name){
+
+        $req = $this->getPDO()->prepare($statement);
+        $req->execute($attributes);
+        $data = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+        return (count($data) === 1) ? $data[0] : $data;
+    }
 }
